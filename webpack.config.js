@@ -1,23 +1,48 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path = require('path')
 
 const config = {
-    entry: './src/app.js',
-    output: {
-        path: __dirname + '/public/assets/',
-        filename: 'index.js'
+    context: path.resolve(__dirname, 'src'),
+    entry: {
+        'index': './app.js'
     },
-    devServer: {
-        contentBase: './public/'
+    output: {
+        publicPath: path.resolve(__dirname, 'public/assets'),
+        path: path.resolve(__dirname, 'public/assets'),
+        filename: '[name].js'
     },
     module: {
-        loaders: [
-            {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
-            {test: /\.scss$/, loader: ExtractTextPlugin.extract('css-loader!sass-loader')},
+        rules: [{
+                test: /\.js$/,
+                include: path.resolve(__dirname, 'src'),
+                exclude: /node_modules/,
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            ['es2015', {
+                                modules: false
+                            }]
+                        ]
+                    }
+                }]
+            },
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    use: ['css-loader', 'sass-loader']
+                })
+            }
         ]
     },
     plugins: [
-        new ExtractTextPlugin("style.css")
-    ]
+        new ExtractTextPlugin('style.css')
+    ],
+    devServer: {
+        contentBase: path.join(__dirname, '/public/'),
+        compress: true,
+        port: 4000
+    },
 }
 
 module.exports = config
