@@ -14,5 +14,9 @@
   "scripts": {
     "build": "webpack -p --watch",
     "start": "webpack-dev-server"
+  },
+  "dependencies": {
+    "bootstrap": "next",
+    "bulma": "^0.4.2"
   }
 }
