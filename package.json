@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "webpack -p --watch",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --watch --open"
   },
   "dependencies": {
     "bootstrap": "next",
