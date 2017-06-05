@@ -10,6 +10,7 @@
 
 <body>
     <sidebar id="sidebar">
+        <button id="toggle-nav" onclick="toggleNav()"><i class="fa fa-close"></i></button>
         <div class="logo">
             <img id="big-logo" src="http://gengs.info/en/storage/logo-white%20white-reverse.png" alt="Logo">
             <img id="small-logo" src="http://gengs.info/en/storage/favicon3.png" alt="Logo mini">
@@ -44,7 +45,7 @@
     </sidebar>
     <main id="main">
         This is Main Content.
-        <button id="toggle-nav" class="btn btn-primary" onclick="toggleNav()">Toggle Sidebar</button>
+        <button id="toggle-nav" class="btn btn-primary" onclick="toggleNav()" style="display: none">Toggle Sidebar</button>
     </main>
     <script src="assets/index.js"></script>
 </body>
