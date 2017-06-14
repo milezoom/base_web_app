@@ -1,7 +1,7 @@
 # Base Web App  
 Simple setup Webpack, Sass, and Babel
 
-### Getting Started
+### Steps
 1. clone this repo.
 2. run `yarn upgrade` or `npm install` to install devDependencies.
 3. continue code at `src`.
